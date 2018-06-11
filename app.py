@@ -22,14 +22,14 @@ def webhook():
     req = request.get_json(force=True)
     print("Request:")
     print(req.get("result").get("parameters").get("number-integer"))
-    num1 = int(req.get("result").get("parameters").get("number-integer")[0])
-    num2 = int(req.get("result").get("parameters").get("number-integer1")[0])    
+    num1 = req.get("result").get("parameters").get("number-integer")
+    num2 = req.get("result").get("parameters").get("number-integer1")    
     
     result = num1 + num2
     
     return json.dumps({
-        "speech": string(result),
-        "displayText": "Assim 10",
+        "speech": result,
+        "displayText": result,
         # "data": data,
         # "contextOut": [],
         "source": "boi-magia"
