@@ -11,11 +11,13 @@ from urllib.error import HTTPError
 import json
 import os
 
+import operator
+
 from flask import Flask, request, make_response, jsonify
 
 # Flask app should start in global layout
 app = Flask(__name__)
-
+ops = { "+": operator.add, "-": operator.sub,"/": operator.div,"*":operator.mul }
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():   
@@ -23,8 +25,9 @@ def webhook():
     
     num1 = req.get("result").get("parameters").get("number-integer") #retorna um array
     num2 = req.get("result").get("parameters").get("number-integer1")    
+    operador = req.get("signal")
     
-    result = num1[0] + num2[0]
+    result = ops[operador](num1[0],num2[0])
     
     return json.dumps({
         "speech": result,
