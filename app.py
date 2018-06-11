@@ -64,7 +64,7 @@ def makeWebhookResult(data):
     if query is None:
         return {}
 
-    speech = "Retorno: " query
+    speech = "Retorno: " + query
 
     print("Response:")
     print(speech)
