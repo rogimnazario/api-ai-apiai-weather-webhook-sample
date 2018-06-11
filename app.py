@@ -56,7 +56,7 @@ def makeYqlQuery(req):
     if qtd is None:
         return None
 
-    return qtd #"select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
+    return 10 #"select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "') and u='c'"
 
 
 def makeWebhookResult(data):
