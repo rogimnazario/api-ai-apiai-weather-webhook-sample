@@ -25,7 +25,7 @@ def webhook():
     num1 = req.get("result").get("parameters").get("number-integer")
     num2 = req.get("result").get("parameters").get("number-integer1")    
     
-    result = num1 + num2
+    result = num1[0] + num2[0]
     
     return json.dumps({
         "speech": result,
