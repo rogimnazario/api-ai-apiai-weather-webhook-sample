@@ -22,10 +22,15 @@ ops = { "+": operator.add, "-": operator.sub, "/": operator.truediv, "*": operat
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():   
     req = request.get_json(force=True)
-    
+    #print("Request")
+    #print(req)
+    #print("")
     num1 = req.get("result").get("parameters").get("number-integer") #retorna um array
     num2 = req.get("result").get("parameters").get("number-integer1")    
-    operador = req.get("parameters").get("signal")
+    
+    #print("operator")
+    operador = req.get("result").get("parameters").get("signal")
+    print(operador)
     
     result = ops[operador](num1[0],num2[0])
     
