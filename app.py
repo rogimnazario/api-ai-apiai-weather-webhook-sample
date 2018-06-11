@@ -21,9 +21,9 @@ app = Flask(__name__)
 def webhook():   
     req = request.get_json(force=True)
     print("Request:")
-    print(req.get("result").get("number-integer"))
-    num1 = int(req.get("result").get("number-integer")[0])
-    num2 = int(req.get("result").get("number-integer1")[0])    
+    print(req.get("result").get("parameters").get("number-integer"))
+    num1 = int(req.get("result").get("parameters").get("number-integer")[0])
+    num2 = int(req.get("result").get("parameters").get("number-integer1")[0])    
     
     result = num1 + num2
     
