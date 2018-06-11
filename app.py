@@ -11,9 +11,7 @@ from urllib.error import HTTPError
 import json
 import os
 
-from flask import Flask
-from flask import request
-from flask import make_response
+from flask import Flask, request, make_response, jsonify
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -25,7 +23,8 @@ def webhook():
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
-    print(json.dumps(req, indent=4))
+    print(req)
+    print(req.get("result").get("action"))
     
     return json.dumps({
         "speech": "10",
