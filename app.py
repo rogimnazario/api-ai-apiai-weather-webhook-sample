@@ -19,9 +19,12 @@ from flask import make_response
 app = Flask(__name__)
 
 
-@app.route('/webhook', methods=['GET', 'POST'])
-def webhook(veio):
-    print(veio)
+@app.route('/webhook', methods=['POST'])
+def webhook():   
+    req = request.get_json(silent=True, force=True)
+
+    print("Request:")
+    print(json.dumps(req, indent=4))
     
     return json.dumps({
         "speech": "10",
