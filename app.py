@@ -21,13 +21,13 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
-    return {
-        "speech": json.dumps({'quantosUsuarios': '10', 'filename': 'record.filename' , 'links_to' : 'record.links_to'}),
-        "displayText": json.dumps({'quantosUsuarios': '10', 'filename': 'record.filename' , 'links_to' : 'record.links_to'}),
+    return json.dumps({
+        "speech": "10",
+        "displayText": "Assim 10",
         # "data": data,
         # "contextOut": [],
         "source": "boi-magia"
-    }
+    })
 
 
 def processRequest(req):
