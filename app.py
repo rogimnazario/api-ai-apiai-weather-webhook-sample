@@ -20,8 +20,8 @@ app = Flask(__name__)
 
 
 @app.route('/webhook', methods=['GET', 'POST'])
-def webhook():
-    print(request.json)
+def webhook(veio):
+    print(veio)
     
     return json.dumps({
         "speech": "10",
