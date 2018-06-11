@@ -25,7 +25,7 @@ def webhook():
     
     num1 = req.get("result").get("parameters").get("number-integer") #retorna um array
     num2 = req.get("result").get("parameters").get("number-integer1")    
-    operador = req.get("signal")
+    operador = req.get("parameters").get("signal")
     
     result = ops[operador](num1[0],num2[0])
     
