@@ -23,8 +23,7 @@ def webhook():
     req = request.get_json(silent=True, force=True)
 
     print("Request:")
-    print(req)
-    print(req.get("result").get("action"))
+    print(request)    
     
     return json.dumps({
         "speech": "10",
