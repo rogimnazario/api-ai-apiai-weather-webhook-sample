@@ -19,11 +19,8 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():   
-    print("Antes de ler o request.")
-    req = request.get_json(silent=True, force=True)
-
     print("Request:")
-    print(request.get("a"))    
+    print(request.get_json(silent=True, force=True))    
     
     return json.dumps({
         "speech": "10",
