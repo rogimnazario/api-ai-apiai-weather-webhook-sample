@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
-    return json.dumps("Webhook")
+    return json.dumps({'quantosUsuarios': '10', 'filename': 'record.filename' , 'links_to' : 'record.links_to'})
 
 
 def processRequest(req):
