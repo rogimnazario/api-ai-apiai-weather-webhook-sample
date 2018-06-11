@@ -19,11 +19,15 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['GET','POST'])
 def webhook():   
+    req = request.get_json(force=True)
     print("Request:")
-    print(request.get_json(force=True))    
+    num1 = int(req.get("result").get("number-integer")[0])
+    num2 = int(req.get("result").get("number-integer1")[0])    
+    
+    result = num1 + num2
     
     return json.dumps({
-        "speech": "10",
+        "speech": string(result),
         "displayText": "Assim 10",
         # "data": data,
         # "contextOut": [],
